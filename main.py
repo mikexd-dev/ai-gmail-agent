@@ -2,7 +2,6 @@ import openai
 import os
 from dotenv import find_dotenv, load_dotenv
 from fastapi import FastAPI
-from pydantic import BaseModel
 
 load_dotenv(find_dotenv())
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -43,9 +42,9 @@ function_descriptions = [
 ]
 
 
-class Email(BaseModel):
-    from_email: str
-    content: str
+# class Email(BaseModel):
+#     from_email: str
+#     content: str
 
 
 @app.get("/")
@@ -54,7 +53,7 @@ def read_root():
 
 
 @app.post("/")
-def analyse_email(email: Email):
+def analyse_email(email):
     content = email.content
     prompt = f"Please extract key information from this email: {content} "
 
