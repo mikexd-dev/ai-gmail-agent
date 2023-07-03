@@ -2,7 +2,10 @@ import requests
 
 print(
     requests.post(
-        "https://render-test-w3ha.onrender.com",
+        "http://0.0.0.0:10000",
+        headers={
+            'Content-Type': 'application/json'
+        },
         json={
             "from_email": "asdasd@gmail.com",
             "content": """
