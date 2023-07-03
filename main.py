@@ -54,6 +54,7 @@ def read_root():
 
 @app.post("/")
 def analyse_email(email):
+    print(email)
     content = email.content
     prompt = f"Please extract key information from this email: {content} "
 
